@@ -1,1 +1,1 @@
-Webpack starter setup for React-Typescript project.
+Simple React Typescript registration example
