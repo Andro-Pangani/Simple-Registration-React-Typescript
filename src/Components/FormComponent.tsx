@@ -1,15 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Wrapper } from './FormComponent.styled'
-import { Input } from './FormComponent.styled'
+import { Wrapper, Input } from './FormComponent.styled'
+import { FetchPost } from '../lib/Requests.lib'
+import { Form } from '../Interfaces'
 
-interface Form {
-  firstName: string | null
-  lastName: string | null
-  idNumber: number | null
-  birthDate: string | null
-  gender: string | null
-}
+const _registration_url = 'http://localhost:5000/insert'
 
 export const FormComponent: React.FC = ({ history }) => {
   const [formData, setFormDate] = useState<Form>({
@@ -19,8 +14,6 @@ export const FormComponent: React.FC = ({ history }) => {
     birthDate: null,
     gender: null,
   })
-
-  const [formIsValid, setFormIsValid] = useState(false)
 
   const onChangeHandler = (
     e:
@@ -36,10 +29,13 @@ export const FormComponent: React.FC = ({ history }) => {
 
   // const registerUser = () =>
 
-  const registerHandler = (e) => {
+  const registerHandler = async (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault()
 
     let formIsValid = true
+
+    // checking if all inputs are fullfiled
+    // and if id field contains 11 simbols
 
     for (const prop in formData) {
       if (!formData[prop] || formData.idNumber?.length !== 11) {
@@ -50,30 +46,11 @@ export const FormComponent: React.FC = ({ history }) => {
     }
     if (!formIsValid) return
 
-    fetch('http://localhost:5000/insert', {
-      method: 'POST',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        if (result.ok) {
-          setFormDate({
-            firstName: null,
-            lastName: null,
-            idNumber: null,
-            birthDate: null,
-            gender: null,
-          })
-          history.push('/dashboard')
-          console.log(result, 'Success')
-        } else {
-          console.log('Something went wrong ')
-        }
-      })
+    const result = await FetchPost(_registration_url, formData)
+
+    if (result.ok) {
+      history.push('/dashboard')
+    }
   }
 
   return (
