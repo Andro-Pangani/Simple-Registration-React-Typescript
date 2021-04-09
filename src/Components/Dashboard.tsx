@@ -28,16 +28,16 @@ export const Dashboard: React.FC = () => {
     }
   }, [])
 
-  const filterKeywordHandler = (e) => {
+  const filterKeywordHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setfilterKeyword(e.target.value)
     console.log(e.target.value, 'Filter Keyword')
   }
 
-  const filterByHandler = (e) => {
+  const filterByHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value, ' Filtering on change')
     if (!filterKeyword) return
     const value = e.target.value
-    let result = users.filter((user) => user[filterKeyword] === value)
+    const result = users.filter((user) => user[filterKeyword] === value)
     console.log(result, 'Filtered Results ', filterKeyword, value)
     setContent(result)
   }
@@ -73,7 +73,7 @@ export const Dashboard: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {content.map((user, i) => {
+          {content.map((user: { [key: string]: string }, i) => {
             return (
               <tr key={i}>
                 <td>

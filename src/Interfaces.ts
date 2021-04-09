@@ -1,7 +1,7 @@
-export interface Form {
-  firstName: string | null
-  lastName: string | null
-  idNumber: number | null
-  birthDate: string | null
-  gender: string | null
+export interface User {
+  firstName: string
+  lastName: string
+  idNumber: string
+  birthDate: string
+  gender: string
 }

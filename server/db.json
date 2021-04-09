@@ -1,11 +1,1 @@
-{
-  "users": [
-    {
-      "firstName": "Andro",
-      "lastName": "Pangani",
-      "idNumber": "33423423443",
-      "birthDate": "2021-04-21",
-      "gender": "Male"
-    }
-  ]
-}
+{"users":[{"firstName":"Andro","lastName":"Pangani","idNumber":"33423423443","birthDate":"2021-04-21","gender":"Male"},{"firstName":"4323","lastName":"343","idNumber":33333333333,"birthDate":"2021-04-07","gender":"Male"},{"firstName":"4323","lastName":"343","idNumber":33333333333,"birthDate":"2021-04-07","gender":"Male"},{"firstName":"Jonson","lastName":"Jonson","idNumber":33443334433,"birthDate":"2002-03-31","gender":"Male"},{"firstName":"ssdf","lastName":"sdf","idNumber":34343443344,"birthDate":"2021-04-20","gender":"Male"}]}

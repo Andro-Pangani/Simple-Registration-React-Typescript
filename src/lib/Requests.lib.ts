@@ -1,8 +1,8 @@
-import { Form } from '../Interfaces'
+import { User } from '../Interfaces'
 
 export const FetchPost = async (
   url: string,
-  data: Form
+  data: User
 ): Promise<{ ok: boolean }> => {
   const response = await fetch(url, {
     method: 'POST',

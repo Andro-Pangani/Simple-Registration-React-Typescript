@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-const input_border_color = 'red'
 
 export const Wrapper = styled.div`
   padding: 18px;
@@ -10,6 +9,12 @@ export const Wrapper = styled.div`
       font-size: 18px;
     }
   }
+
+  .validation-message {
+    color: #d84c4c;
+    font-style: italic;
+  }
+
   form {
     width: fit-content;
   }
@@ -23,7 +28,7 @@ export const Wrapper = styled.div`
 
   .input_item {
     margin-bottom: 8px;
-    input {
+    /* input {
       border-radius: 5px;
       padding: 5px;
       font-size: 15px;
@@ -34,12 +39,12 @@ export const Wrapper = styled.div`
       border-right-color: #6d84f5;
       border-top-color: #8095ff;
       border-bottom-color: #515fa7;
-    }
-    input[type='date']::-webkit-calendar-picker-indicator {
+    } */
+    /* input[type='date']::-webkit-calendar-picker-indicator {
       color: red;
       background-color: #5487d3;
       border-radius: 3px;
-    }
+    } */
   }
 
   .id_caption {
